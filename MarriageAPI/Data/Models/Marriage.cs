@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace MarriageAPI.Models
 {
@@ -12,5 +11,28 @@ namespace MarriageAPI.Models
         public Person Person2 { get; set; }
 
         public DateTime Date { get; set; }
+
+        public Marriage(Person person1, Person person2)
+        {
+            Person1 = person1;
+            Person2 = person2;
+
+            Date = DateTime.Now;
+
+            GetMaried();
+        }
+
+        public void Divorce()
+        {
+            Person1.BecomeSingle();
+            Person2.BecomeSingle();
+        }
+
+        private void GetMaried()
+        {
+            Person1.BecomeMarried();
+            Person2.BecomeMarried();
+        }
+
     }
 }

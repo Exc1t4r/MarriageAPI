@@ -20,5 +20,16 @@ namespace MarriageAPI.Models
         public int PersonalCode { get; set; }
 
         public bool Married { get; set; } = false;
+
+        public void BecomeSingle()
+        {
+            Married = false;
+        }
+
+        public void BecomeMarried()
+        {
+            Married = true;
+        }
+
     }
 }

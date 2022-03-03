@@ -1,17 +1,12 @@
 using MarriageAPI.Data;
+using MarriageAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace MarriageAPI
 {
@@ -29,10 +24,15 @@ namespace MarriageAPI
         {
             services.AddControllers();
 
-            // Database
+            // Database connection
             services.AddDbContext<ApplicationDbContext>(
                 options => options.UseSqlServer(@"Server=MAINBOX\SQLEXPRESS;Initial Catalog=Test;Integrated Security=SSPI;"));
 
+            // Database related services
+            services.AddScoped<PeopleService>();
+            services.AddScoped<WeddingService>();
+
+            // Swagger
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MarriageAPI", Version = "v1" });
