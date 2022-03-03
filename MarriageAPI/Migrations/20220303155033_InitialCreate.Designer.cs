@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MarriageAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220303132143_InitialCreate")]
+    [Migration("20220303155033_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

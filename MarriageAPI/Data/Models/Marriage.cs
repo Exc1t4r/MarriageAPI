@@ -12,6 +12,11 @@ namespace MarriageAPI.Models
 
         public DateTime Date { get; set; }
 
+        public Marriage()
+        {
+
+        }
+
         public Marriage(Person person1, Person person2)
         {
             Person1 = person1;
