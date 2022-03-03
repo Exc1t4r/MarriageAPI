@@ -38,9 +38,9 @@ namespace MarriageAPI.Services
 
                         _appDbContext.Marriages.Add(marriage);
                         await _appDbContext.SaveChangesAsync();
-                    }
 
-                    return true;
+                        return true;
+                    }
                 }
 
                 return false;
